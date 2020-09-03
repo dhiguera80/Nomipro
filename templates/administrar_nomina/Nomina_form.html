@@ -1,0 +1,143 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% block head %} 
+{% comment %} <script src="{% static 'js/form.js' %}"></script> {% endcomment %}
+{% endblock %}
+{% block content %}<br><br><br><br><br><br>
+
+<main role="main">
+    <div class="row mb-5">
+        <div class="col-md-10">
+            <div class="table-responsive">
+                <nav aria-label="breadcrumb mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'Nomina_lista' %}">Lista nomina</a></li>
+                        <li class="breadcrumb-item active">Crear</li>
+                    </ol>
+                </nav>
+                <div class="formulario align=left" >
+                    <h4>Crear Nomina</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="Id_nomina" class="txt_negrita" >Id nomina</label>
+                            {{ form.Id_nomina }}
+                        </div>
+                        <div class="form-group">
+                            <label for="Id_periodo" class="txt_negrita">Id periodo</label>
+                            {{ form.Id_periodo }}
+                        </div>
+                        <div class="form-group">
+                            <label for="Id_empleado" class="txt_negrita">Id empleado</label>
+                            {{ form.Id_empleado }}
+                        </div> 
+                        <div class="form-group">
+                            <label for="Estado" class="txt_negrita">Estado</label>
+                            {{ form.Estado }}
+                        </div> 
+
+                        <div class="form-group">
+                            <label for="Valor_pagar" class="txt_negrita">Valor pagar</label>
+                            {{ form.Valor_pagar }}
+                        </div> 
+                         
+                         
+                        {% comment %} <div class="form-group">
+                            <label for="Valor_pagar" class="txt_negrita">Valor pagar</label>
+                            <select class="form-control" name="form6" Id="Id_Valor_pagar">
+                                {% for item in form6 %}
+                                   <option value="{{item.Valor_cargo}}">{{item.Valor_cargo}}</option>
+                                {% endfor %}
+                            </select>
+                            {{ form.Valor_pagar }}
+                        </div> {% endcomment %}
+
+
+                        {% comment %} <div class="form-group">
+                          <label for="cantidadhorasextras" class="txt_negrita">Cantidad horas extras</label>
+                          <input type="number" class="form-control" name="Id_cantidad_horas" Id="Id_cantidad_horas"></input>
+                        </div>  {% endcomment %}
+    
+
+     
+
+                        <div  class="form-group">
+                          <label for="Pago" class="txt_negrita">Pago</label>
+                          {% comment %} <input   type="number" class="form-control" name="Id_Valor_pagar2" Id="Id_Valor_pagar2"></input> {% endcomment %}
+                          {{ form.Pago }}
+                        </div>
+
+                        <div  class="form-group">
+                          <label for="Subtotal" class="txt_negrita">Subtotal</label>
+                          {% comment %} <input   type="number" class="form-control" name="Id_Valor_pagar2" Id="Id_Valor_pagar2"></input> {% endcomment %}
+                          {{ form.Subtotal }}
+                        </div>
+
+                        {% comment %} <div class="form-group">
+                          <label for="subtotal" class="txt_negrita">Subtotal</label>
+                          <input type="number" class="form-control" name="Id_Subtotal" Id="Id_Subtotal"></input>      
+                        </div>  {% endcomment %}
+
+                        {% comment %} <div class="form-group">
+                          <label for="total" class="txt_negrita">Total</label>
+                          <input type="number" class="form-control" name="Id_Total" Id="Id_Total"></input>  
+                        </div>
+
+   
+    
+                        <div class="form-group">
+                          <label for="nombre_horas_extras" class="txt_negrita">Nombre horas extras</label>
+                          <select type="number" class="form-control" name="form5" Id="Id_nombre_extras">
+                          {% for item in form5 %}
+                          <option value="{{item.Nombre}}">{{item.Nombre}}</option>
+                          {% endfor %}
+                         </select> 
+        
+                        </div>
+
+
+    <div class="form-group">
+        <label for="nombre_parafiscales" class="txt_negrita">Nombre parafiscal</label>
+        <select type="string" class="form-control" name="form4" Id="Id_nombre_parafiscal">
+            {% for item in form4 %}
+            <option value="{{item.Nombre}}">{{item.Nombre}}</option>
+            {% endfor %}
+        </select> 
+        
+    </div>
+    <div class="form-group">
+        <label for="horasextras" class="txt_negrita">Valor horas extras</label>
+        <select type="number" class="form-control" name="form5" Id="Id_horas">
+            {% for item in form5 %}
+            <option value="{{item.Valor_hora_extra}}">{{item.Valor_hora_extra}}</option>
+            {% endfor %}
+        </select> 
+        
+    </div> 
+
+
+    <div class="form-group">
+        <label for="parafiscales" class="txt_negrita">Parafiscales</label>
+        <select type="number" class="form-control" name="form4" Id="Id_parafiscales">
+            {% for item in form4 %}
+            <option value="{{item.Valor_parafiscales}}">{{item.Valor_parafiscales}}</option>
+            {% endfor %}
+        </select> 
+    </div>    {% endcomment %}
+
+                        {% comment %} <button type="button" class="btn btn-info" onclick="Calcular()">Prueba</button> {% endcomment %}
+                        <button type="submit" class="btn btn-primary";>Guardar</button>
+                        <a href="{% url 'Nomina_lista' %}" type="submit" class="btn btn-warning">Volver</a>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script src="{% static 'js/form.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery.chained.js' %}"></script>
+   
+{% endblock %}

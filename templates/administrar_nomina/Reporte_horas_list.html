@@ -1,0 +1,82 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="contanier text-center mt-5">
+    <div class="row">
+        <div class="col-md-12">
+        <br><br>
+        <h5>Lista de reporte horas</h5>
+        </div>
+    </div>
+</div>
+
+<div class="contanier text-center mt-5">
+    <div class="row justify-content-center mb-5">
+        <div class="card col-md-5">
+            <h6 class="mt-4"><strong>Menú</strong></h6>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item ">Parafiscales</li> 
+                <li class="list-group-item ">Detalle parafiscales</li> 
+                <li class="list-group-item active">Reporte horas</li> 
+                <li class="list-group-item ">Detalle horas</li>
+                <li class="list-group-item ">Horas extras</li>
+            </ul>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="col-md-15">
+        <div class="table-responsive-left">
+            {% if messages %}
+            <ul class="messages list-group mb-3">
+                 {% for message in messages %}
+                 <li {% if message.tags %} class="{{ message.tags}} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+                 {% endfor %}
+             </ul>
+            {% endif %}
+
+                <div align="left" class="btn_crear mb-3">
+                    <a href="Reporte_horas" type="button" class="btn-btn-primary">crear</a>
+
+                </div>
+                </div>
+                </div>
+
+<div class="table-responsive">
+<table class="table table-bordered">
+   <thead>
+      <tr>
+            <td><p class="text-custom mb-1">Id_reporte_horas</p></td>
+            <td><p class="text-custom mb-1">Id_empleado</p></td>
+            <td><p class="text-custom mb-1">Id_periodo</p></td>
+            <td><p class="text-custom mb-1">Numero_horas</p></td>
+            <td><p class="text-custom mb-1">Acciones</p></td>
+     </tr>
+   </thead>
+</div>
+ <tbody>
+      {% if object_list %}
+      {% for administrar_nomina in object_list %}
+      <tr>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Id_reporte_horas}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Id_empleado}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Id_periodo}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Numero_horas}}</p></td>
+           <td>
+          <a class="btn btn-success" href="{% url 'Reporte_horas_detalle' administrar_nomina.Id_reporte_horas %}">
+          Ver</a>
+          <a class="btn btn-primary" href="{% url 'Reporte_horas_editar' administrar_nomina.Id_reporte_horas %}">
+          Editar</a>
+          {% comment %} <a class="btn btn-danger" href="{% url 'Reporte_horas_eliminar' administrar_nomina.Id_reporte_horas %}">
+          Eliminar</a> {% endcomment %}
+          </td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <h1>No hay registro de reporte horas<h1>
+      {% endif %}
+</tbody>
+</table>
+{% endblock  %}

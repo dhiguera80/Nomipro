@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<main role="main">
+
+<div class="container text-center mt-5">
+    <br><br>
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 style="font-size: 28px;">Detalle periodo</h1>
+        </div>
+
+
+ 
+        <div class="col-md-10">
+            <div class="table-responsive">
+                <nav aria-label="breadcrumb mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="./">Detalle periodo</a></li>
+                        <li class="breadcrumb-item active">Detalles</li>
+                    </ol>
+                </nav>
+                <div class="form align=left" >
+                    <h4>Detalles</h4>
+                    <p><span class="txt_negrita">Id_periodo:</span><br>{{ object.Id_periodo}}</p>
+                    <p><span class="txt_negrita">Anual:</span><br>{{ object.Anual}}</p>
+                    <p><span class="txt_negrita">Mes:</span><br>{{ object.Mes}}</p>
+
+                    <a href="{% url 'Periodo_lista' %}" type="submit" class="btn btn-warning">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+ {% endblock %} 

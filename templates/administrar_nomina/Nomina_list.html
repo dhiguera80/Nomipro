@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="contanier text-center mt-5">
+    <div class="row">
+        <div class="col-md-12">
+        <br><br>
+        <h5>Lista de nomina</h5>
+        </div>
+    </div>
+</div>
+
+<div class="contanier text-center mt-5">
+    <div class="row justify-content-center mb-5">
+        <div class="card col-md-5">
+            <h6 class="mt-4"><strong>Menú</strong></h6>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item active">Nomina</li> 
+                <li class="list-group-item ">Periodo</li>
+            </ul>
+        </div>
+        </div>
+        </div>
+
+        <div class="col-md-15">
+        <div class="table-responsive-left">
+            {% if messages %}
+            <ul class="messages list-group mb-3">
+                 {% for message in messages %}
+                 <li {% if message.tags %} class="{{ message.tags}} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+                 {% endfor %}
+             </ul>
+            {% endif %}
+
+                <div align="left" class="btn_crear mb-3">
+                    <a href="Nomina" type="button" class="btn-btn-primary">crear</a>
+
+                </div>
+                </div>
+                </div>
+
+<div class="table-responsive">
+<table class="table table-bordered">
+   <thead>
+      <tr>
+            <td><p class="text-custom mb-1">Id_nomina</p></td>
+            <td><p class="text-custom mb-1">Valor_pagar</p></td>
+            <td><p class="text-custom mb-1">Subtotal</p></td>
+            <td><p class="text-custom mb-1">Id_periodo</p></td>
+            <td><p class="text-custom mb-1">Id_empleado</p></td>
+            <td><p class="text-custom mb-1">Pago</p></td>
+            <td><p class="text-custom mb-1">Estado</p></td>
+            <td><p class="text-custom mb-1">Acciones</p></td>
+     </tr>
+   </thead>
+</div>
+ <tbody>
+      {% if object_list %}
+      {% for administrar_nomina in object_list %}
+      <tr>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Id_nomina}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Valor_pagar}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Subtotal}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Id_periodo}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Id_empleado}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Pago}}</p></td>
+          <td><p class="text-custom mb-1">{{administrar_nomina.Estado}}</p></td>
+          <td>
+          <a class="btn btn-success" href="{% url 'Nomina_detalle' administrar_nomina.Id_nomina %}">
+          Ver</a>
+          <a class="btn btn-primary" href="{% url 'Nomina_editar' administrar_nomina.Id_nomina %}">
+          Editar</a>
+          {% comment %} <a class="btn btn-danger" href="{% url 'Nomina_eliminar' administrar_nomina.Id_nomina %}">
+          Eliminar</a> {% endcomment %}
+          </td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <h1>No hay registro de nomina<h1>
+      {% endif %}
+</tbody>
+</table>
+{% endblock  %}

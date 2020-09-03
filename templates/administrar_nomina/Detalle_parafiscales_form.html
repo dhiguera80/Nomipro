@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<main role="main">
+    <div class="row mb-5">
+        <div class="col-md-10">
+            <div class="table-responsive">
+<br><br><br><br><br><br>
+                <nav aria-label="breadcrumb mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'Detalle_parafiscales_lista' %}">Lista detalle parafiscales</a></li>
+                        <li class="breadcrumb-item active">Crear</li>
+                    </ol>
+                </nav>
+                <div class="formulario align=left" >
+                    <h4>Crear detalle parafiscales</h4>
+<form method='post'>
+   {% csrf_token %}
+   {{ form.as_p }}
+   <button type="submit" class="btn btn-primary";>Guardar</button>
+   <a href="{% url 'Detalle_parafiscales_lista' %}" type="submit" class="btn btn-warning">Volver</a>
+</form>
+{% endblock %}

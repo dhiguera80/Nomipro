@@ -1,0 +1,51 @@
+
+
+{% extends 'base/base.html' %}
+
+
+{% block content %}<br><br><br><br><br><br><br><br><br><br>
+
+<div class="text-center justify-content-center">
+                <a href="#" class="logo"><span>Nomi<span>pro</span></span></a>
+            </div>
+<div class="m-t-40 card-box">
+                <div class="text-center">
+                    <h4 class="text-uppercase font-bold m-b-0">Ingresar</h4>
+                </div>
+
+<form method='post'>
+      {% csrf_token %}
+      <div class="row justify-content-center">
+      <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+      <label for="username">Nombre de usurio:</label>
+      <input class="form-control" type="text" name="username">
+      </div>
+      </div>
+      </div>
+      <div class="row justify-content-center">
+      <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+      <label for="username">Contraseña:</label>
+      <input class="form-control" type="password" name="password">
+      </div>
+      </div>
+      </div>
+      <div class="row justify-content-center">
+      <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+      <a href="{% url 'password_reset' %}">Olvide mi contraseña</a>
+      <button type="submit" class="btn btn-primary";>Ingresar</button>
+      {% comment %} <input class="btn btn-primary" type="submit" value="Ingresar"> {% endcomment %}
+      </div>
+      </div>
+      </div>
+      <div class="row justify-content-center">
+      <div class="col-sm-12 text-center">
+      <p class="text-muted">Desea registrar un usuario? <a href=" {% url 'Registrar' %}" class="text-primary m-l-5"><b>Registrar</b></a></p>
+      </div>
+      </div>
+
+</form>
+</div>
+{% endblock %}

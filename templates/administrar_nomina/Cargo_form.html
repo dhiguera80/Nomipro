@@ -1,0 +1,79 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% block head %} 
+<script src="{% static 'js/form.js' %}"></script>
+{% endblock %}
+{% block content %}
+<br><br><br><br><br><br>
+<main role="main">
+    <div class="row mb-5">
+        <div class="col-md-10">
+            <div class="table-responsive">
+                <nav aria-label="breadcrumb mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'Cargo_lista' %}">Lista cargo</a></li>
+                        <li class="breadcrumb-item active">Crear</li>
+                    </ol>
+                </nav>
+                <div class="formulario align=left" >
+                    <h4>Crear cargo</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="Id_cargo" class="txt_negrita">Id Cargo</label>
+                            {{ form.Id_cargo }}
+                        </div>
+                        <div class="form-group">
+                            <label for="Nombre" class="txt_negrita">Nombre Cargo</label>
+                            {{ form.Nombre }}
+                        </div>
+                        <div class="form-group">
+                            <label for="Estado" class="txt_negrita">Estado</label>
+                            {{ form.Estado }}
+                        </div> 
+                        <div class="form-group">
+                            <label for="Valor_cargo" class="txt_negrita">Valor Cargo</label>
+                            {% comment %} <input type="number" class="form-control" name="id_valor" id="id_valor"></input> {% endcomment %}
+                            {{ form.Valor_cargo }}
+                        </div> 
+                        {% comment %} <div class="form-group">
+                            <label for="Cantidad_horas_extras" class="txt_negrita">Cantidad horas extras</label>
+                            <input type="number" class="form-control" name="id_cantidad_horas_extras" id="id_cantidad_horas_extras"></input>  
+                        </div> 
+                        <div class="form-group">
+                            <label for="Horas_extras" class="txt_negrita">Horas extras</label>
+                            <input type="number" class="form-control" name="id_horas_extras" id="id_horas_extras" disabled ></input>   
+                        </div> 
+                        <div class="form-group">
+                            <label for="Subtotal" class="txt_negrita">Subtotal</label>
+                            <input type="number" class="form-control" name="id_subtotal" id="id_subtotal" disabled ></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="cantidad_parafiscales" class="txt_negrita">Porcentaje parafiscal</label>
+                            <input type="number" class="form-control" name="id_valor_parafiscales" id="id_valor_parafiscales" ></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="Valor_parafiscales" class="txt_negrita">Valor parafiscales</label>
+                            <input type="number" class="form-control" name="id_parafiscales" id="id_parafiscales"  disabled></input> 
+                        </div>
+                        <div class="form-group">
+                            <label for="Total_pago" class="txt_negrita">Total pago</label>
+                            <input type="number" class="form-control" name="id_Total_pago" id="id_Total_pago"  disabled></input> 
+                        </div>
+                      {% endcomment %}
+                        {% comment %} <button type="button" class="btn btn-info" onclick="Prueba()";>Prueba</button> {% endcomment %}
+                        <button type="submit" class="btn btn-primary" onclick="Prueba()";>Guardar</button>
+                        <a href="{% url 'Cargo_lista' %}" type="submit" class="btn btn-warning">Volver</a>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script src="{% static 'js/form.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery.chained.js' %}"></script>
+   
+{% endblock %}
