@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-        {% comment %} cargar libreria de bootstrap {% endcomment %}
+    {% comment %} cargar libreria de bootstrap {% endcomment %}
         {% load bootstrap4 %}
 
         {% comment %} archivos estaticos {% endcomment %}
@@ -12,16 +11,18 @@
         {% comment %} archivos estaticos {% endcomment %}
         {% bootstrap_css %}
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="{% static 'css/images/favicon.ico' %}">
+        <meta charset="utf-8" />
+        <title>Nomipro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-
-        <title>Nomipro</title>
 
         <!-- App css -->
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
@@ -32,114 +33,53 @@
 
     </head>
 
-      {% block navbar %}
+    <body>
 
-{% comment %} <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"> Gestion de empleados <span class="caret"></span></a>   
-            </li> {% endcomment %}
+        <!-- Navigation Bar-->
+        <header id="topnav">
+            <div class="topbar-main">
+                <div class="container-fluid">
 
-    <body class="fixed-left" >
-
-        <!-- Begin page -->
-        <div id="wrapper">
-
-            <!-- Top Bar Start -->
-            <div class="topbar">
-
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <a href="{% url 'index' %}" class="logo"><span>Nomi<span>pro</span></span><i class="mdi mdi-layers"></i></a>
-                </div>
-
-                <!-- Button mobile view to collapse sidebar menu -->
-                <div class="navbar navbar-responsive" role="navigation">
-                    <div class="container-fluid">
-                    
-
-                        <!-- Page title -->
-                        <ul class="nav navbar-nav list-inline navbar-left">
-                            <li class="list-inline-item">
-                                <button class="button-menu-mobile open-left">
-                                    <i class="mdi mdi-menu"></i>
-                                </button>
-                            </li>
-                            <li class="list-inline-item">
-                                <h4 class="page-title">Nomipro</h4>
-                            </li>
-                        </ul>
-
-                        <nav class="navbar-custom">
-
-                            <ul class="list-unstyled topbar-right-menu float-right mb-0">
-
-                                
-
-                                <li class="hide-phone">
-                                    <form class="app-search">
-                                        <input type="text" placeholder="Search..."
-                                               class="form-control">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                    </form>
-                                </li>
-
-                            </ul>
-                        </nav>
-                    </div><!-- end container -->
-                </div><!-- end navbar -->
-            </div>
-            <!-- Top Bar End -->
-
-
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
-
-                    <!-- User -->
-                    <div class="user-box">
-                        <div class="user-img">
-                            <img src="{% static 'images/users/avatar-11.jpg' %}" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail img-responsive">
-                            
-                        </div>
-                        <h5><a href="#">Proyecto Daniel Higuera</a> </h5>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a href=" {% url 'login' %}" >
-                                    <i class=" dripicons-user"></i>
-                                </a>
-                            </li>
-
-                            <li class="list-inline-item">
-                                <a href=" {% url 'logout' %}" class="text-custom">
-                                    <i class="mdi mdi-power"></i>
-                                </a>
-                            </li>
-                        </ul> 
+                    <!-- Logo container-->
+                    <div class="logo center">
+                        <!-- Text Logo -->
+                        <!--<a href="index.html" class="logo">-->
+                            <!--<span class="logo-small"><i class="mdi mdi-radar"></i></span>-->
+                            <!--<span class="logo-large"><i class="mdi mdi-radar"></i> Adminto</span>-->
+                        <!--</a>-->
+                        <!-- Image Logo -->
+                        <a href="{% url 'index' %}" class="logo">
+                            <img src="{% static 'images/users/avatar-11.jpg' %}"  height="40" class="logo-small rounded-circle">
+                            <img src="{% static 'images/users/avatar-11.jpg' %}"  height="35" class="logo-large rounded-circle">
+                        </a>
+                        
                     </div>
-                    <!-- End User -->
+                    <!-- End Logo container-->
 
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <ul>
-                        	<li class="text-muted menu-title">Navegacion</li>
 
-                            <li>
-                                <a href= "{% url 'index' %}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Inicio </span> </a>
-                            </li>
+                    <div class="clearfix"></div>
 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-user-circle-o"></i> <span> Gestion empleado </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
+                </div> <!-- end container -->
+            </div>
+            <!-- end topbar-main -->
+
+            <div class="navbar-custom">
+                <div class="container-fluid">
+                    <div id="navigation">
+                        <!-- Navigation Menu-->
+                        <ul class="navigation-menu">
+                            <li class="has-submenu">
+                                <a href="#"><i class="fa fa-user-circle-o"></i><span> Gestion empleados </span> </a>
+                                <ul class="submenu">
                                     <li><a href="{% url 'Empleado_lista' %}">Empleado</a></li>
                                     <li><a href="{% url 'Cargo_lista' %}">Cargo</a></li>
                                     <li><a href="{% url 'Tipo_vinculacion_lista' %}">Tipo vinculacion</a></li>
                                 </ul>
                             </li>
 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class=" mdi mdi-alarm-snooze"></i> <span> Gestion de tiempos </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
+                            <li class="has-submenu">
+                                <a href="#"><i  class=" mdi mdi-alarm-snooze"></i> <span> Gestion de tiempos </span> </a>
+                                <ul class="submenu">
                                     <li><a href="{% url 'Parafiscales_lista' %}">Parafiscales</a></li>
                                     <li><a href="{% url 'Detalle_parafiscales_lista' %}">Detalle parafiscales</a></li>
                                     <li><a href="{% url 'Reporte_horas_lista' %}">Reporte horas</a></li>
@@ -148,72 +88,55 @@
                                 </ul>
                             </li>
 
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class=" mdi mdi-currency-usd"></i> <span> Administrar nomina  </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
+                            <li class="has-submenu">
+                                <a href="#"><i class=" mdi mdi-currency-usd"></i><span> Administrar nomina </span> </a>
+                                <ul class="submenu">
                                     <li><a href="{% url 'Nomina_lista' %}">Nomina</a></li>
                                     <li><a href="{% url 'Periodo_lista' %}">Periodo</a></li>
                                 </ul>
                             </li>
 
-
-
+                            <li class="has-submenu">
+                                <a href="#"><i class=" mdi mdi-currency-usd"></i><span> Opciones </span> </a>
+                                <ul class="submenu">
+                                    <li><a href=" {% url 'login' %}" ><i class=" dripicons-user"></i> Login </a></li>
+                                    <li><a href="{% url 'logout' %}"><i class="mdi mdi-power"></i> Logout </a></li>
+                                </ul>
+                            </li>
                         </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- Sidebar -->
-                    <div class="clearfix"></div>
+                        <!-- End navigation menu -->
+                    </div> <!-- end #navigation -->
+                </div> <!-- end container -->
+            </div> <!-- end navbar-custom -->
+        </header>
+        <!-- End Navigation Bar-->
+        <br><br><br><br><br>
+                            <li class="list-inline-item">
+                                <h4 class="page-title">Nomipro</h4>
+                            </li>
 
-                </div>
-
-            </div>
-            <!-- Left Sidebar End -->
-            {% endblock %}
-            <div class="content container">
+        <div class="content container">
             <div class="row">
             <div class="col-md-10">
             {% block content %}
-              <div class="responsive">
-                </div>
             {% endblock %}
             </div>
             </div>
+            <br><br><br><br><br>
+            <br><br><br><br><br>
 
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
-                    <div class="container-fluid">
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-                <footer class="footer text-right">
-                    2020 - 2020 © Nomipro. Coderthemes.com
-                </footer>
-
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        2020 - 2020 © Nomipro. Coderthemes.com
+                    </div>
+                </div>
             </div>
+        </footer>
+        <!-- End Footer -->
 
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-
-
-            <!-- Right Sidebar -->
-  
-            <!-- /Right-bar -->
-
-        
-        <!-- END wrapper -->
-        
 
 
         <!-- jQuery  -->
@@ -237,4 +160,3 @@
 
     </body>
 </html>
-
